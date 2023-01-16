@@ -1,0 +1,7 @@
+! para crear html basico
+
+a href target="_blank"  - Lo abre aparte
+
+Ir a diferentes partes de la pagina con hre
+<nav id="arriba">
+<a href="#arriba">Volver arriba </a>

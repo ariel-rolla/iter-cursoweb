@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor{
+    background-color: chartreuse;
+    display: flex; /* La direccion por defecto es row */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: 100vh;
+}
+
+.caja{
+    width: 300px; /* Ancho de una etiqueta */
+    height: 300px;/* Alto de una etiqueta */
+}
+.uno{
+    background-color: blueviolet;
+
+    border: 10px solid goldenrod;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+.dos{
+    background-color: aqua;
+}
+.tres{
+    background-color: chocolate;
+}
+.cuatro{
+    background-color: darkblue;
+}
+.cinco{
+    background-color: crimson;
+}
+.seis{
+    background-color: darkolivegreen;
+}
+.siete{
+    background-color: deeppink;
+}
+.ocho{
+    background-color: green;
+}
+
+a{
+    background-color: crimson;
+}

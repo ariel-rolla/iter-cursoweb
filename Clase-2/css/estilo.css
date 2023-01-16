@@ -1,0 +1,19 @@
+body {
+    background-color: darkviolet;
+}
+
+h1{
+    color: chartreuse;
+    text-decoration: underline 8px white;
+}
+
+p{
+    color: aliceblue;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    background-color: crimson;
+    border-radius: 5px;
+}

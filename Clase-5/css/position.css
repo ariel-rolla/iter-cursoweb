@@ -1,0 +1,43 @@
+.contenedor {
+    background-color: chartreuse;
+    min-height: 200vh;
+    display: flex;
+    margin-top: 300px;
+}
+
+.carta {
+    width: 300px;
+    height: 300px;
+}
+
+.uno {
+    background-color: brown;
+}
+
+.dos{
+    background-color: blue;
+
+    /* es como fixed pero cuando llega a su lugar se queda ahi*/
+    position: sticky;
+    top: 200px;
+    left: 400px;
+
+    /* Se mueve pero no se mantiene fijo en pantalla y no ocupa lugar en div
+    position: absolute;
+    top: 200px;
+    left: 400px; */
+
+    /* Se mueve pero no se mantiene fijo en pantalla y sigue ocupando espacio en div 
+    position: relative;
+    top: 200px;
+    left: 400px; */
+
+/*  Mantiene fijo en una posicion y no ocupa lugar   
+    position: fixed;
+    top: 200px;
+    left: 400px; */
+}
+
+.tres{
+    background-color: crimson;
+}

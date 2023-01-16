@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none !important; 
+    box-sizing: border-box;
+}
+
+.btnHamburger{
+    font-size: 24px;
+     display: none; 
+}
+
+header{
+    background-color: darkslategray;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 16px 2vw;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav{
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: aliceblue;
+}
+
+@media screen and (max-width: 600px) {
+    header{
+        background-color: darkmagenta;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        display: none;   
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .btnHamburger{
+        display: block;
+    }
+
+}

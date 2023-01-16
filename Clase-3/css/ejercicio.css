@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor{
+    background-color: green;
+    display: flex;
+    gap: 20px;
+    min-height: 100vh;
+    flex-direction: column; /* row por defecto (no poner si es row), se cambia a column para uno abajo de otro */
+    justify-content: center; /* centrar en eje x cuando el flex direction es row, row por defecto */
+    align-items: center; /* centrar en eje y */
+
+}
+.caja{
+    width: 300px;
+    height: 300px;
+}
+.uno{
+    background-color: orange;
+}
+.dos{
+    background-color: orange;
+}

@@ -1,0 +1,66 @@
+@keyframes entrada-por-la-derecha {
+    0%{
+        color: chartreuse;
+        transform: translateX(-200px) ;
+    }
+    50%{
+        color: brown;
+    }
+    100%{
+        color: chartreuse;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes entrada-por-la-derecha-escalado {
+    0% {
+        transform: translateX(-200px);
+        scale: 0.1;
+    }
+    100%{
+        transform: translateX(0px);
+        scale: 1;
+    }
+}
+
+.contenedorDeCajas{
+    background-color: #fd611a;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+.caja-uno{
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+    padding: 20px 10px 40px 5px;
+    border: 10px violet dotted;
+    margin: 20px 0px 30px 50px;
+    border-radius: 5px; /* borde redondeado */
+    box-shadow: 0px 3px 5px rgb(100, 100, 100);
+}
+.caja-dos{
+    background-color: green;
+    width: 200px;
+    height: 200px;
+}
+.caja-dos:hover{
+    transition: all 2s ease;
+    background-color: violet;
+    cursor: pointer;
+}
+.text{
+    color: greenyellow;
+    text-shadow: 2px 2px 5px black;
+    -webkit-text-stroke: 1px violet; /* borde a la letra */
+    /*animacion*/
+    animation-name: entrada-por-la-derecha;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.imagen {
+    width: 100px;
+    border-radius: 10px;
+    animation-name: entrada-por-la-derecha-escalado;
+    animation-duration: 5s;
+}
