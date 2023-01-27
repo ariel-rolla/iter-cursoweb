@@ -8,3 +8,12 @@ Ir a diferentes partes de la pagina con hre
 
 borrar cache usuario github
 git config --global --unset credential.helper
+
+typeof
+dice que tipo es la variable
+
+Number()
+convierte a numero
+
+String()
+convierte a string
