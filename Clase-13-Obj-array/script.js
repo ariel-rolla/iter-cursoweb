@@ -82,3 +82,21 @@ for(let fruta of frutas){
 
 
 
+const productos = [
+    {
+        name: "nokia 1100",
+        precio: 700000
+    },
+    {
+        name: "motorola G8",
+        precio: 10
+    },
+    {
+        name: "iphone 10",
+        precio: 1000
+    }
+]
+
+for (const producto of productos){
+    console.log(celular.name + " cuesta: $" + celular.precio)
+}
