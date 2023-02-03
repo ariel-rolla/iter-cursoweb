@@ -165,7 +165,7 @@ console.log(series.filter(serie => serie.valoracion==valoracionPedida))
 
 //2
 let idPedido = 2
-console.log(series.find(serie => serie.id==idPedido))
+console.log(series. find(serie => serie.id==idPedido))
 
 //3
 
