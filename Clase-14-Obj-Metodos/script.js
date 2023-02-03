@@ -137,3 +137,35 @@ console.log(productos.filter(producto => producto.title.toUpperCase().includes(s
 //Elabore un buscador de productos por su nombre de codigo
 
 //Elabore un algoritmo que me dice si hay algun producto que supere los 10000
+
+series = [
+    {
+        id: 1,
+        nombre: "mindhunter",
+        fecha: 2019-09-16,
+        valoracion: 3
+    },
+    {
+        id: 2,
+        nombre: "dark",
+        fecha: 2020-06-27,
+        valoracion: 3
+    },    
+    {
+        id: 3,
+        nombre: "El Señor de los Anillos - Los Anillos de Poder",
+        fecha: 2022-09-01,
+        valoracion: 2
+    }
+]
+
+//1
+let valoracionPedida = 2
+console.log(series.filter(serie => serie.valoracion==valoracionPedida))
+
+//2
+let idPedido = 2
+console.log(series.find(serie => serie.id==idPedido))
+
+//3
+
