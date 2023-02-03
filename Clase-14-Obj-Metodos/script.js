@@ -60,10 +60,10 @@ for(const producto of productos){
 
 //como se usa hoy
 
-//forEach recorre todo el array
+//forEach recorre todo el array y realiza la accion pedida
 productos.forEach((producto) => console.log ("el celula es: "+producto.title)) 
 
-//filter para filtrar segun criterio
+//filter para filtrar segun criterio, devuelve todos los resultados
 
 const resultados = productos.filter((producto) =>  producto.marca == "motorola" && producto.price < 15000 )
 
@@ -73,7 +73,47 @@ if (resultados.length < 1){
     console.log(resultados)
 }
 
-//find
+//ejemplo filter
+
+const resultados2 = productos.filter( producto => producto.marca == "motorola")
+
+console.log(resultados2.length + " coincidencias encontradas ")
+
+
+
+//find retorna el primero que encuentra en array segun la condicion
+
+console.log( productos.find(producto => producto.title=="moto g9") )
+
+
+
+//some devuelve true si encuentra al menos un resultado
+
+if (productos.some(producto => producto.price == 3001)){
+    console.log("hay una coincidencia")
+}else{
+    console.log("no hay ninguna coincidencia")
+}
+
+
+// every - devuelve true si todos cumplen la condicion
+
+console.log(productos.every(producto => producto.price > 1))
+
+
+// findIndex - Devuelve en callback el indice del resultado
+
+console.log(productos.findIndex(producto => producto.title == "moto g9"))
+
+// map devuelve un array con el criterop
+
+// si se hiciera con map pero innecesario
+// const resultado = productos.map(producto => producto.price) 
+let totalMercaderia = 0
+//resultado.forEach(precio => totalMercaderia += precio) */
+
+productos.forEach(producto => totalMercaderia += producto.price) 
+console.log(totalMercaderia)
 
 
 
