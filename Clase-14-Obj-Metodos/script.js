@@ -169,3 +169,20 @@ console.log(series. find(serie => serie.id==idPedido))
 
 //3
 
+
+
+//Callback  -  Funcion recibida por parametro
+
+const calcular = (a, b, callback) => {
+    console.log(callback(a,b))
+}
+
+calcular(1,1, (a,b) => a + b)
+
+//ejemplo 
+
+const generarContrasenia = (str, callback) => {
+    return { contraseña: callback(str), mostrarContraseña: str}
+}
+
+console.log(   generarContrasenia("hola1234", (str) => "*".repeat(str.length))   )
