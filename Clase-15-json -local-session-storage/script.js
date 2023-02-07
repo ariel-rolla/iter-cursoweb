@@ -55,3 +55,20 @@ JSON.parse(localStorage.getItem("productos"))
     y cada vez que se recarge la pagina, debera mostrarnos por consola el carrito, PERO DEBEMOS OBTENERLO DEL LOCAL STORAGE
 */
 
+carrito = [
+    {
+        id : 1,
+        nombre : "",
+        precio : 15
+    },
+    {
+        id : 2,
+        nombre : "",
+        precio : 15
+    },
+    {
+        id : 3,
+        nombre : "",
+        precio : 15
+    }
+]
