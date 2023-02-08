@@ -58,17 +58,30 @@ JSON.parse(localStorage.getItem("productos"))
 carrito = [
     {
         id : 1,
-        nombre : "",
+        nombre : "arroz",
         precio : 15
     },
     {
         id : 2,
-        nombre : "",
-        precio : 15
+        nombre : "leche",
+        precio : 20
     },
     {
         id : 3,
-        nombre : "",
-        precio : 15
+        nombre : "huevo",
+        precio : 30
+    },
+    {
+        id : 4,
+        nombre : "harina",
+        precio : 25
+    },
+    {
+        id : 5,
+        nombre : "alfajor",
+        precio : 50
     }
 ]
+
+localStorage.setItem("carrito",JSON.stringify(carrito))
+console.log(JSON.parse(localStorage.getItem("carrito")))
