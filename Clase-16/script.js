@@ -14,7 +14,7 @@ const contenedorHTML = document.getElementById("contenedor")
 
 contenedorHTML.innerHTML = "<button> Boton </button>"
 
-Pedir nombre  - hacer titulo que diga Hola + nombre
+//Pedir nombre  - hacer titulo que diga Hola + nombre
 
 let nombre=prompt("Ingrese nombre")
 
