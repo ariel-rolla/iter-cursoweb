@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.contenedor {
+    display: flex;
+    
+}
+
+.carta {
+    padding: 2vh 2vw;
+    margin: 3;
+    border-radius: 24px;
+    background: #fbf4f4;
+    box-shadow:  7px 7px 18px #9c9797,
+            -7px -7px 18px #ffffff;
+}
