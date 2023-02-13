@@ -1,0 +1,30 @@
+.rojo {
+    background-color: red;
+}
+
+header {
+    display: flex; /* Para que se ponga una cosa al lado de la otra */
+    justify-content: space-between; /* para llevar el contenido a las puntas */
+    padding: 0 5vw; /*  ariba-abajo - derecha-izquierda */
+    flex-direction: column;
+}
+
+.oculto {
+    display: none; /* para ocultarlo */
+}
+
+.titulo-nav{
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
