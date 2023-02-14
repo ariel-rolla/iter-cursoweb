@@ -21,6 +21,8 @@ convierte a string
 
 mati.a.gimenez2002@gmail.com
 
+Stack MERN
+
 investigar:
 React native
 Flutter
