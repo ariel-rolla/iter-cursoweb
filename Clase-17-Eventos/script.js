@@ -21,3 +21,16 @@ btn.addEventListener("click", () => {
     /* btn.classList.toggle("rojo") */
 })
 
+
+
+//Formulario
+const formulario = document.getElementById("formulario")
+
+formulario.addEventListener("submit",(event) => { // event se abrevia e a veces
+    event.preventDefault() // Evita comportamiento por defecto, evita que recargue pagina
+    
+    console.log("El nombre del usuario es: "+formulario.nombre.value)
+    console.log("El mail del usuario es: "+formulario.email.value)
+    console.log("La contraseña  del usuario es: "+formulario.password.value)
+})
+
