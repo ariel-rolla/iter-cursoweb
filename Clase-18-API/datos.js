@@ -35,14 +35,3 @@ const productos = [
         descripcion: "Alfajores Arroz Vauquita Choco Blanco Con Dulce De Leche - 24 Unidades"
     },    
 ]
-
-
-//Consumir API
-//Asincrono - Sigue el resto del codigo hasta que termine la consulta a la api
-//fetch devuelve una promesa, 
-
-const URL_API = "https://swapi.dev/api/"
-
-fetch(URL_API)
-.then(response => console.log(response)) //RESUELTO: al obtener resultado satisfactorio
-.catch(error => )  //Error al conectar
