@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 style="background-color: black; color:white">Empresa X</h1>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="listado_productos.html">Listado de producto</a></li>
+        </ul>
+    </header>
+    <main>
+        <h2>Alta de Producto</h2>
+        <form>
+            <fieldset>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre">
+
+                <label for="precio">Precio</label>
+                <input type="number" id="precio">
+            </fieldset>
+            <fieldset>
+                <label for="stock">Stock</label>
+                <input type="number" id="stock">
+
+                <label for="stockMin">Stock minimo</label>
+                <input type="number" id="stockMin">
+            </fieldset>
+            <fieldset>
+                <label for="fechaAlta">Fecha de alta</label>
+                <input type="date" id="fechaAlta" value="2021-08-27">
+
+                <label for="horaAlta">Hora de alta</label>
+                <input type="time" id="horaAlta" value="15:58">
+            </fieldset>
+            <fieldset>
+                <img src="images/mouse.webp" height="100px" alt="mouse">
+
+                <label for="imagen">Imagen</label>
+                <input type="file" id="imagen">
+            </fieldset>
+            <fieldset>
+                <label for="cuotas">Cuotas sin interes</label>
+                <select id="cuotas">
+                    <option>1</option>
+                    <option>3</option>
+                    <option selected>6</option>
+                    <option>9</option>
+                    <option>12</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="nacional">Nacional</label>
+                <input type="radio" name="origen" id="nacional">
+
+                <label for="importado">Importado</label>
+                <input type="radio" name="origen" id="importado" checked>
+            </fieldset>
+            <fieldset>
+                <label for="envioGratis">Envio Gratis</label>
+                <input type="checkbox" id="envioGratis" checked>
+
+                <label for="garantia">Garantia</label>
+                <input type="checkbox" id="garantia">
+            </fieldset>
+            <fieldset>
+                <textarea  id="observaciones" cols="75" rows="5" placeholder="Observaciones"></textarea>
+            </fieldset>
+            <fieldset style="background-color: black; color: black;">
+                <input type="submit" id="guardar" value="Guardar">
+            </fieldset>
+
+        </form>
+
+    </main>
+</body>
+</html>
