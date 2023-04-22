@@ -6,3 +6,16 @@ nav {
 .logo {
     width: 4rem;
 }
+
+.ofertas {
+    height: 11rem;
+    background-image: url("../images/textura_parallax.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.busqueda {
+    height: 15rem;
+}
