@@ -1,34 +1,32 @@
-
-
 .logo {
-    width: 4rem;
+  width: 4rem;
 }
 
 .ofertas {
-    height: 11rem;
-    background-image: url("../images/textura_parallax.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  height: 11rem;
+  background-image: url("../images/textura_parallax.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .busqueda {
-    margin-top: 5.5rem;
-    margin-bottom: 1.5rem;
-} 
+  margin-top: 5.5rem;
+  margin-bottom: 1.5rem;
+}
 
 .hover-gray:hover {
-    background-color: #ccc;
-    border-color: #ccc;
+  background-color: #ccc;
+  border-color: #ccc;
 }
 
 .card:hover {
-    cursor: pointer;
-    color: #0d6efd;
-    border-color: #0d6efd;
+  cursor: pointer;
+  color: #0d6efd;
+  border-color: #0d6efd;
 }
 
-.card img{
-    height: 16rem;
+.card img {
+  height: 16rem;
 }
