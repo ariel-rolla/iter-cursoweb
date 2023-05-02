@@ -1,0 +1,38 @@
+#logo {
+    height: 40px;
+}
+
+.navbar {
+    background-color: rgba(250, 168, 74, 0.9 );
+}
+
+.btn-warning {
+    background-color: rgba(250, 168, 74, 0.9 );
+}
+
+.text-box {
+    height: 38px;
+}
+
+.parallax-promo{
+    height: 22vh;
+    background-image: url(../images/textura_parallax.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    font-size: 35px;
+}
+
+.card-img-top {
+    height: 35vh;
+    object-fit: contain;
+}
+
+footer {
+    font-weight: 900;
+}
+
+#buscador {
+    margin-top: 85px;
+}
