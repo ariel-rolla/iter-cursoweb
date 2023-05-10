@@ -18,6 +18,10 @@ convierte a numero
 String()
 convierte a string
 
+For: si ya se de antemano cantidad de bucles
+
+While: Interacciones con usuario, no se cantidad de bucles
+
 
 mati.a.gimenez2002@gmail.com
 
