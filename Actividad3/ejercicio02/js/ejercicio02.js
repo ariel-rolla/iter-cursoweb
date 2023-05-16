@@ -1,8 +1,8 @@
-let num1 = prompt("Ingrese primer numero");
-let num2 = prompt("Ingrese segundo numero");
+const num1 = 120;
+const num2 = 30;
 
 if(Number(num1)>Number(num2)){
-    alert("El número mayor es "+num1);
+    console.log("El número mayor es "+num1);
 }else{
-    alert("El número mayor es "+num2);
+    console.log("El número mayor es "+num2);
 }

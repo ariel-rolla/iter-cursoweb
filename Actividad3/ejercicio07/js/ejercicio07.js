@@ -1,9 +1,9 @@
 
-let num1 = prompt("Ingrese el primer numero");
-let num2 = prompt("Ingrese el segundo numero");
+let num1 = 20;
+let num2 = 36;
 
 let num3 = num1;
 num1 = num2;
 num2 = num3;
 
-alert("Ahora el num1 vale "+num1+" y num2 vale "+num2);
+console.log("Ahora el num1 vale "+num1+" y num2 vale "+num2);
