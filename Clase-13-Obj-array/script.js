@@ -1,3 +1,10 @@
+/*Al buscar en array conviene pasarlo a mayuscula o minuscula (solo para la busqueda)
+nombre
+nombre.toLowerCase()  - minuscula
+nombre.toUpperCase()  - mayusucula
+*/
+
+
 /* Devuelve un array de un objeto y la cantidad  
 Object.keys(usuario).length 
 
