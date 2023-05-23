@@ -8,9 +8,7 @@ Mostrar el contenido en forma inversa:
 
 let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-//let nroMostrar = numeros.length;
-for (let i=10; i < 1; i++){
-
-    console.log(i);
+for (let i=0; i <= numeros.length; i++){
+    console.log(numeros.length-i);
 }
-console.log("algo")
+
