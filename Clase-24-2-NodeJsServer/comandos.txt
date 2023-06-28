@@ -1,0 +1,5 @@
+Crea package.json
+npm init -y
+
+Express: framework de Nodejs para servidor web y api
+npm i express
