@@ -3,3 +3,7 @@ npm init -y
 
 Express: framework de Nodejs para servidor web y api
 npm i express
+
+Para probar backend sin necesidad de frontend
+Mas conocido: Postman
+Thunderclient en visual code
