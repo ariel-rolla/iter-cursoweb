@@ -1,0 +1,34 @@
+XAMPP
+  -> MySQL
+  -> PHPMyAdmin (Apache + PHP)
+  -> XAMPP Control Panel
+
+
+//INSERT (AGREGAR)
+
+INSERT INTO provincias(nombre)
+VALUES('Chubut');
+
+//SELECT (CONSULTAR)
+
+SELECT * 
+FROM provincias;
+
+//UPDATE (MODIFICAR)
+
+UPDATE provincias
+SET nombre="Corrientes"
+WHERE id = 5
+
+//DELETE (BORRAR)
+
+DELETE 
+FROM provincias 
+WHERE id = 3;
+
+
+
+POST   -> http://localhost:8000/clientes    -> Agregar un cliente
+GET    -> http://localhost:8000/clientes    -> Dame los clientes
+PUT    -> http://localhost:8000/clientes/2  -> Modificar el cliente con id 2
+DELETE -> http://localhost:8000/clientes/3  -> Eliminar el cliente con id 3

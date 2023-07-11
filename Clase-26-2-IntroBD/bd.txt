@@ -1,0 +1,59 @@
+RELACIONALES (MySQL, Ms SQL Server, Oracle...)
+
+Tablas (clientes, proveedores, productos...)
+
+Tabla cliente
+-------------
+  -> Campos: 
+
+Clave primaria (Primary key)
+                                                                      Clave foranea (Foreign key)
+id    nombre     apellido           calle                 altura      id_provincia
+--
+
+10    Elon       Musk               Av. Rivadavia         4853             1     -> Registro
+15    Bill       Gates              Avenida Rivadavia     4200             1     -> Registro 
+36    Elon       Musk               Av. Bartolome Mitre   125              4     -> Registro 
+
+
+Tabla provincias
+----------------
+
+id     nombre
+--
+
+1      Cordoba
+2      Santa Cruz
+3      Buenos Aires
+4      Santa Fe
+5      Misiones
+
+<select>
+    <option value="1">Cordoba</option>
+    <option value="2">Santa Cruz</option>
+    <option value="3">Buenos Aires</option>    
+</select>
+                                                         
+
+Tabla proveedores
+-----------------
+  -> Campos: 
+
+id   razon_social     nombre_contacto      telefono      cuit
+--
+
+1    Empresa X        Pepe                  45456456     132312313321  -> Registro
+2    Empresa Y        Roberto               132132132    789797979     -> Registro
+3    Empresa Z        Maria                 8989898899   465564646     -> Registro
+
+
+
+Tabla productos
+---------------
+ 	-> Campo: 
+    
+id   nombre    precio      stock
+--
+
+1    Monitor    120000      4
+2    Impresora  152300      20

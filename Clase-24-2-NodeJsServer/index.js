@@ -27,12 +27,16 @@ app.post('/productos', (req, res) => {
     res.json({message: 'El producto se agrego correctamente'});
 });
 
-app.put('/productos/:id', (req, res) => {
+app.put('/productos/:codigo', (req, res) => {
     res.json({message: 'El producto se modifico correctamente'});
 });
 
-app.delete('/productos', (req, res) => {
-    res.json({message: 'El producto se elimino  correctamente'});
+app.delete('/productos/:id', (req, res) => {
+    const codigo = req.params.id;
+
+    //ACA VA IR EL CODIGO QUE ELIMINA DE LA BD 
+
+    res.json({message: 'El producto '+ codigo +' se elimino correctamente'});
 });
 
 app.listen(8000);  //inicia el server para empezar a escuchar peticiones
