@@ -49,27 +49,24 @@ const mostrarProductos = (productos) => {
 }
 
 
-
-
-                
-
-
 const mostrarClientes = (clientes) => {
 
-    let html = `<table class="table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Calle</th>
-                        <th>Altura</th>
-                        <th>Provincia</th>
-                    </tr>
-                </thead>
-                <tbdody>`
+    let html = `
+                <button classs="btn btn-primary">Nuevo</button>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Calle</th>
+                            <th>Altura</th>
+                            <th>Provincia</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbdody>`
     
-    clientes.forEach( (cliente) => {
-        const { nombre, apellido, calle, altura, id_provincia} = cliente;
+    clientes.forEach( (nombre, apellido, calle, altura, id_provincia) => {
 
         html += `<tr>
                     <td>${nombre}</td>
@@ -77,6 +74,10 @@ const mostrarClientes = (clientes) => {
                     <td>${calle}</td>
                     <td>${altura}</td>
                     <td>${id_provincia}</td>
+                    <td>
+                        <button class="btn btn-success">Modificar</button>
+                        <button class="btn btn-danger">Eliminar</button>
+                    </td>
                 </tr>           
         `
     });
