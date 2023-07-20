@@ -2,7 +2,7 @@ const linkClientes = document.getElementById("link-clientes");
 const linkProductos = document.getElementById("link-productos");
 
 const cargarClientes = () => {
-    const url = "http://localhost:8000/clientes";
+    const url = "http://127.0.0.1:8000/clientes";
 
     fetch(url)
         .then((response) => response.json())
@@ -10,7 +10,7 @@ const cargarClientes = () => {
 }
 
 const cargarProductos = () => {
-    const url = "http://localhost:8000/productos";
+    const url = "http://127.0.0.1:8000/productos";
 
     fetch(url)
         .then((response) => response.json())
@@ -48,11 +48,40 @@ const mostrarProductos = (productos) => {
 
 }
 
+const agregarCliente = () => {
+    const url = "http://127.0.0.1:8000/clientes";
+    fetch(url, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.json())
+    .then((data) => console.log(data));
+}
+
+const modificarCliente = () => {
+    const url = "http://127.0.0.1:8000/clientes";
+    fetch(url, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.json())
+    .then((data) => console.log(data));
+}
+
+const eliminarCliente = () => {
+    const url = "http://127.0.0.1:8000/clientes";
+    fetch(url, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.json())
+    .then((data) => console.log(data));
+}
 
 const mostrarClientes = (clientes) => {
 
     let html = `
-                <button classs="btn btn-primary">Nuevo</button>
+                <button id="btn-nuevo-cliente" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-editor-clientes">Nuevo</button>
                 <table class="table">
                     <thead>
                         <tr>
@@ -66,7 +95,7 @@ const mostrarClientes = (clientes) => {
                     </thead>
                     <tbdody>`
     
-    clientes.forEach( (nombre, apellido, calle, altura, id_provincia) => {
+    clientes.forEach(({nombre, apellido, calle, altura, id_provincia}) => {
 
         html += `<tr>
                     <td>${nombre}</td>
@@ -75,8 +104,8 @@ const mostrarClientes = (clientes) => {
                     <td>${altura}</td>
                     <td>${id_provincia}</td>
                     <td>
-                        <button class="btn btn-success">Modificar</button>
-                        <button class="btn btn-danger">Eliminar</button>
+                        <button class="btn-modificar-cliente btn btn-success">Modificar</button>
+                        <button class="btn-eliminar-cliente btn btn-danger">Eliminar</button>
                     </td>
                 </tr>           
         `
@@ -87,6 +116,19 @@ const mostrarClientes = (clientes) => {
 
     const content = document.getElementById("content");
     content.innerHTML = html;
+
+    const btnNuevoCliente = document.getElementById("btn-nuevo-cliente");
+    btnNuevoCliente.addEventListener("click", agregarCliente);
+
+    const btnModificarCliente = document.getElementsByClassName("btn-modificar-cliente");
+    for (boton of btnModificarCliente){
+        boton.addEventListener("click", modificarCliente);
+    };
+
+    const btnEliminarCliente = document.getElementsByClassName("btn-eliminar-cliente");
+    for (boton of btnEliminarCliente){
+        boton.addEventListener("click", )
+    };
 }
 
 linkClientes.addEventListener("click", cargarClientes);
