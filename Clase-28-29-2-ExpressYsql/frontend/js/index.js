@@ -48,16 +48,6 @@ const mostrarProductos = (productos) => {
 
 }
 
-const agregarCliente = () => {
-    const url = "http://127.0.0.1:8000/clientes";
-    fetch(url, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"}
-    })
-    .then(response => response.json())
-    .then((data) => console.log(data));
-}
-
 const modificarCliente = () => {
     const url = "http://127.0.0.1:8000/clientes";
     fetch(url, {
@@ -117,8 +107,8 @@ const mostrarClientes = (clientes) => {
     const content = document.getElementById("content");
     content.innerHTML = html;
 
-    const btnNuevoCliente = document.getElementById("btn-nuevo-cliente");
-    btnNuevoCliente.addEventListener("click", agregarCliente);
+   /* const btnNuevoCliente = document.getElementById("btn-nuevo-cliente");
+    btnNuevoCliente.addEventListener("click", agregarCliente); */
 
     const btnModificarCliente = document.getElementsByClassName("btn-modificar-cliente");
     for (boton of btnModificarCliente){
@@ -127,9 +117,31 @@ const mostrarClientes = (clientes) => {
 
     const btnEliminarCliente = document.getElementsByClassName("btn-eliminar-cliente");
     for (boton of btnEliminarCliente){
-        boton.addEventListener("click", )
+        boton.addEventListener("click", eliminarCliente);
     };
 }
 
 linkClientes.addEventListener("click", cargarClientes);
 linkProductos.addEventListener("click", cargarProductos);
+
+const guardarCliente = () => {
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const calle = document.getElementById("calle").value;
+    const altura = document.getElementById("altura").value;
+    const provincia = document.getElementById("provincia").value;
+
+    const data = {nombre, apellido, calle, altura, provincia} ; // solo si la variable es igual, ejemplo nombre: nombre
+
+    const url = "http://127.0.0.1:8000/clientes";
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.json())
+    .then((data) => console.log(data));
+}
+
+const btGuardarCliente = document.getElementById("btn-guardar-cliente");
+btGuardarCliente.addEventListener("click", guardarCliente);
