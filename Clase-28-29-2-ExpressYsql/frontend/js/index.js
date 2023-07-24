@@ -85,14 +85,14 @@ const mostrarClientes = (clientes) => {
                     </thead>
                     <tbdody>`
     
-    clientes.forEach(({nombre, apellido, calle, altura, id_provincia}) => {
+    clientes.forEach(({nombre, apellido, calle, altura, provincia}) => {
 
         html += `<tr>
                     <td>${nombre}</td>
                     <td>${apellido}</td>
                     <td>${calle}</td>
                     <td>${altura}</td>
-                    <td>${id_provincia}</td>
+                    <td>${provincia}</td>
                     <td>
                         <button class="btn-modificar-cliente btn btn-success">Modificar</button>
                         <button class="btn-eliminar-cliente btn btn-danger">Eliminar</button>
@@ -136,7 +136,7 @@ const guardarCliente = () => {
     const url = "http://127.0.0.1:8000/clientes";
     fetch(url, {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(data), //stringify convierte el objeto en string, contrario es JSON.parse(data)
         headers: {"Content-Type": "application/json"}
     })
     .then(response => response.json())

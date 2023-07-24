@@ -11,12 +11,14 @@ const app = express();
 
 app.use(cors()); //middleware - Abierto para escuchar cualquier solicitud - cors({origin:"laweb.com:5500sr"}) para restringir
 
+app.use(express.json()); //Habilito la lectura de JSON que venga en el body
+
 const connection = mysql.createConnection({
     host: "www.db4free.net",
     user: "testbd",
     password: "Pokerface2+",
     database: "testbd2023",
-    //port: 3306
+    //port: 3306 - Default
 });
 
 connection.connect( (error) => {
@@ -30,7 +32,9 @@ connection.connect( (error) => {
 
 app.get('/clientes', (request, response)=>{
 
-    const sql = "SELECT * FROM clientes";
+    const sql = `SELECT clientes.id, clientes.nombre, apellido, calle, altura, id_provincia, provincias.nombre AS pronvincia
+                FROM clientes, provincias
+                WHERE clientes.id_provincia = provincia.id`;
     connection.query(sql, (error, result)=>{
         if(error){
             console.log("Error al obtener el listado de clientes")
@@ -42,8 +46,10 @@ app.get('/clientes', (request, response)=>{
 });
 
 app.post("/clientes", (req, res) => {
+    const {nombre, apellido, calle, altura, provincia } = req.body;
+
     const sql = `INSERT INTO clientes(nombre, apellido, calle, altura, id_provincia)
-                VALUES ("test","test","test",555,2)`;
+                VALUES ("${nombre}","${apellido}","${calle}",${altura},${provincia})`;
     connection.query(sql, (error, result)=>{
         if(error){
             console.log("Error al agregar al cliente")
@@ -51,7 +57,7 @@ app.post("/clientes", (req, res) => {
             res.json({message: "El cliente se ha agregado correctamente"});
         }
     });
-});
+}); 
 
 app.put("/clientes", (req, res) => {
     const sql = `UPDATE clientes
