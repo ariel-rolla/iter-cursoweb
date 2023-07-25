@@ -1,3 +1,4 @@
+const modalEditorClientes = new bootstrap.Modal("#modal-editor-clientes", {});
 const linkClientes = document.getElementById("link-clientes");
 const linkProductos = document.getElementById("link-productos");
 
@@ -58,20 +59,22 @@ const modificarCliente = () => {
     .then((data) => console.log(data));
 }
 
-const eliminarCliente = () => {
-    const url = "http://127.0.0.1:8000/clientes";
+const eliminarCliente = (id) => {
+    const url = `http://127.0.0.1:8000/clientes/${id}`;
     fetch(url, {
-        method: "DELETE",
-        headers: {"Content-Type": "application/json"}
+        method: "DELETE"
     })
     .then(response => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+        cargarClientes();
+        console.log(data);
+    });
 }
 
 const mostrarClientes = (clientes) => {
 
     let html = `
-                <button id="btn-nuevo-cliente" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-editor-clientes">Nuevo</button>
+                <button id="btn-nuevo-cliente" class="btn btn-primary">Nuevo</button>
                 <table class="table">
                     <thead>
                         <tr>
@@ -85,7 +88,7 @@ const mostrarClientes = (clientes) => {
                     </thead>
                     <tbdody>`
     
-    clientes.forEach(({nombre, apellido, calle, altura, provincia}) => {
+    clientes.forEach(({id, nombre, apellido, calle, altura, provincia}) => {
 
         html += `<tr>
                     <td>${nombre}</td>
@@ -95,19 +98,19 @@ const mostrarClientes = (clientes) => {
                     <td>${provincia}</td>
                     <td>
                         <button class="btn-modificar-cliente btn btn-success">Modificar</button>
-                        <button class="btn-eliminar-cliente btn btn-danger">Eliminar</button>
+                        <button data-id=${id} class="btn-eliminar-cliente btn btn-danger">Eliminar</button>
                     </td>
                 </tr>           
         `
     });
 
     html += ` </tbdody>
-             </table> `
+            </table> `
 
     const content = document.getElementById("content");
     content.innerHTML = html;
 
-   /* const btnNuevoCliente = document.getElementById("btn-nuevo-cliente");
+    /* const btnNuevoCliente = document.getElementById("btn-nuevo-cliente");
     btnNuevoCliente.addEventListener("click", agregarCliente); */
 
     const btnModificarCliente = document.getElementsByClassName("btn-modificar-cliente");
@@ -117,8 +120,14 @@ const mostrarClientes = (clientes) => {
 
     const btnEliminarCliente = document.getElementsByClassName("btn-eliminar-cliente");
     for (boton of btnEliminarCliente){
-        boton.addEventListener("click", eliminarCliente);
+
+        const id = boton.getAttribute("data-id")  // getAttribute para atributos personalizados
+
+        boton.addEventListener("click", () => eliminarCliente(id) );
     };
+
+    const btnNuevoCliente = document.getElementById("btn-nuevo-cliente");
+    btnNuevoCliente.addEventListener("click", mostrarModalCliente);
 }
 
 linkClientes.addEventListener("click", cargarClientes);
@@ -140,8 +149,28 @@ const guardarCliente = () => {
         headers: {"Content-Type": "application/json"}
     })
     .then(response => response.json())
-    .then((data) => console.log(data));
+    .then((data) =>{ 
+        console.log(data);
+
+        Swal.fire({             // sweet alert
+            text:"El Cliente se agrego correctamente",
+            icon: "success"
+        }) 
+
+        cargarClientes();
+
+        modalEditorClientes.hide(); // oculta modal
+    });
+
+
+}
+
+const mostrarModalCliente = () => {
+    modalEditorClientes.show();
 }
 
 const btGuardarCliente = document.getElementById("btn-guardar-cliente");
 btGuardarCliente.addEventListener("click", guardarCliente);
+
+
+

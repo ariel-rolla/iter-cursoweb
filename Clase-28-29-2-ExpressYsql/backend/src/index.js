@@ -32,9 +32,9 @@ connection.connect( (error) => {
 
 app.get('/clientes', (request, response)=>{
 
-    const sql = `SELECT clientes.id, clientes.nombre, apellido, calle, altura, id_provincia, provincias.nombre AS pronvincia
+    const sql = `SELECT clientes.id, clientes.nombre, apellido, calle, altura, id_provincia, provincias.nombre AS provincia
                 FROM clientes, provincias
-                WHERE clientes.id_provincia = provincia.id`;
+                WHERE clientes.id_provincia = provincias.id`;
     connection.query(sql, (error, result)=>{
         if(error){
             console.log("Error al obtener el listado de clientes")
@@ -72,9 +72,12 @@ app.put("/clientes", (req, res) => {
     });
 });
 
-app.delete("/clientes", (req, res) => {
+app.delete("/clientes/:id", (req, res) => {
+
+    const id = req.params.id;
+
     const sql = `DELETE FROM clientes
-                WHERE id=1`;
+                WHERE id=${id}`;
     connection.query(sql, (error, result)=>{
         if(error){
             console.log("Error al eliminar al cliente")
