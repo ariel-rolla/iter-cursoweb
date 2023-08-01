@@ -38,7 +38,7 @@ app.get('/clientes', (request, response)=>{
                 WHERE clientes.id_provincia = provincias.id`;
     connection.query(sql, (error, result)=>{
         if(error){
-            console.log("Error al obtener el listado de clientes")
+            console.log("Error al obtener el listado de clientes "+error);
         }else{
             response.json(result);
         }
