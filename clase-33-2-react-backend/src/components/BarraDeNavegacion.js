@@ -1,17 +1,21 @@
 //rfc plantilla de react
 import React from 'react'
-import {Container, Nav, NavDropdown, Navbar} from "react-bootstrap"
+import {Container, Nav, Navbar} from "react-bootstrap"
+
+import { Link } from "react-router-dom"; //Para navegar entre paginas internas, evitar recarga pagina
 
 export default function BarraDeNavegacion() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
     <Container>
-      <Navbar.Brand href="#home">Empresa X</Navbar.Brand>
+      <Link to="/">
+        <Navbar.Brand >Empresa X</Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#home">Clientes</Nav.Link>
-          <Nav.Link href="#link">Productos</Nav.Link>
+          <Link className="nav-link" to="/clients">Clientes</Link>
+          <Link className="nav-link" to="/products">Productos</Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

@@ -45,7 +45,8 @@ const mostrarProductos = (productos) => {
              </table> `
 
     const content = document.getElementById("content");
-    content.innerHTML = html;
+    content.innerHTML = html;     //innerHTML Reemplaza lo que ya tuviera
+    
 
 }
 

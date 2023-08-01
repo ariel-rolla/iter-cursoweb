@@ -1,7 +1,8 @@
-// 1-   npm init -y
-// 2-   npm i express
+// 1-   npm init -y   (Para inciar proyecto vacio)
+// 2-   npm i express  (Instalar express)
 // 3-   npm install mysql2  (para mysql)
 // 4-   npm install cors (para errores de CORS)
+// 5-   node index.js  (para iniciar el backend)
 
 const express = require('express');
 const mysql = require("mysql2");
