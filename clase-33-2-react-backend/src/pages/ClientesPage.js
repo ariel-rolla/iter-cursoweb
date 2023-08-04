@@ -7,6 +7,8 @@ export default function ClientesPage() {
 
   const [ showModalClientes, setshowModalClientes] = useState(false);
 
+  const [ nombre, setNombre] = useState("");
+
   //const [showModalCluente, set]
 
   const getClientes = () => {
@@ -54,6 +56,10 @@ export default function ClientesPage() {
     setshowModalClientes(false);
   }
 
+  const handleChangeNombre = () => {
+    setNombre
+  }
+
   return ( 
     <>
       <h1>Clientes</h1>
@@ -78,7 +84,7 @@ export default function ClientesPage() {
 
             <Form.Group className="mb-3">
               <Form.Label>Nombre</Form.Label>
-              <Form.Control type="text" placeholder="Ingrese nombre" />
+              <Form.Control type="text" placeholder="Ingrese nombre" value={nombre} onChange={handleChangeNombre} />
             </Form.Group>
             
             <Form.Group className="mb-3">
