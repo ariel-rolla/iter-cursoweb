@@ -8,8 +8,11 @@ export default function ClientesPage() {
   const [ showModalClientes, setshowModalClientes] = useState(false);
 
   const [ nombre, setNombre] = useState("");
+  const [ apellido, setApellido] = useState("");
+  const [ calle, setCalle] = useState("");
+  const [ altura, setAltura] = useState("");
+  const [ provincia, setProvincia] = useState("");
 
-  //const [showModalCluente, set]
 
   const getClientes = () => {
     const url = "http://localhost:8000/clientes";
@@ -41,6 +44,10 @@ export default function ClientesPage() {
         <tr>
           <td>{cliente.nombre}</td>
           <td>{cliente.apellido}</td>
+          <td>
+            <Button className='me-2' variant='success'>Modificar</Button>
+            <Button className='me-2' variant='danger'>Eliminar</Button>
+          </td>
         </tr>
       )
     })
@@ -56,9 +63,42 @@ export default function ClientesPage() {
     setshowModalClientes(false);
   }
 
-  const handleChangeNombre = () => {
-    setNombre
+  const handleSave = (event) =>{
+    console.log("Guardar", nombre, apellido, calle, altura, provincia)
+
+    const url = "http://localhost:8000/clientes";
+
+    const data = { nombre, apellido, calle, altura, provincia };
+
+    fetch(url, { 
+      method: "POST", 
+      body: JSON.stringify(data), 
+      headers: {"Content-Type": "application/json"},
+    })
+      .then( (response) => response.json())
+      .then( (result) => console.log(result) )
   }
+
+  const handleChangeNombre = (event) => {
+    setNombre(event.target.value);
+  }
+
+  const handleChangeApellido = (event) => {
+    setApellido(event.target.value);
+  }
+
+  const handleChangeCalle = (event) => {
+    setCalle(event.target.value);
+  }
+
+  const handleChangeAltura = (event) => {
+    setAltura(event.target.value);
+  }
+
+  const handleChangeProvincia = (event) => {
+    setProvincia(event.target.value);
+  }
+
 
   return ( 
     <>
@@ -69,6 +109,7 @@ export default function ClientesPage() {
         <thead>
           <th>Nombre</th>
           <th>Apellido</th>
+          <th>Acciones</th>
         </thead>
         <tbody>
           {getTableBody()}
@@ -89,22 +130,22 @@ export default function ClientesPage() {
             
             <Form.Group className="mb-3">
               <Form.Label>Apellido</Form.Label>
-              <Form.Control type="text" placeholder="Ingrese apellido" />
+              <Form.Control type="text" placeholder="Ingrese apellido" value={apellido} onChange={handleChangeApellido} />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Calle</Form.Label>
-              <Form.Control type="text" placeholder="Ingrese calle" />
+              <Form.Control type="text" placeholder="Ingrese calle" value={calle} onChange={handleChangeCalle} />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Altura</Form.Label>
-              <Form.Control type="number" placeholder="Ingrese Altura" />
+              <Form.Control type="number" placeholder="Ingrese Altura" value={altura} onChange={handleChangeAltura} />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>ID Provincia</Form.Label>
-              <Form.Control type="number" placeholder="Ingrese ID provincia" />
+              <Form.Control type="number" placeholder="Ingrese ID provincia" value={provincia} onChange={handleChangeProvincia} />
             </Form.Group>
 
           </Form>
@@ -113,7 +154,7 @@ export default function ClientesPage() {
           <Button variant="secondary" onClick={handleCloseModalClientes}>
             Cancelar
           </Button>
-          <Button variant="primary" onClick={handleCloseModalClientes}>
+          <Button variant="primary" onClick={handleSave}>
             Guardar
           </Button>
         </Modal.Footer>
