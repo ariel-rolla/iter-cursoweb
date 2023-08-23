@@ -24,6 +24,46 @@ export default function ClientesPage() {
   
   useEffect( getClientes, [] );
 
+
+  const handleShowEditModal = () => {
+    setpr
+  }
+
+  const handleSave = (event) =>{
+    console.log("Guardar", nombre, apellido, calle, altura, provincia)
+
+    const url = "http://localhost:8000/clientes";
+
+    const data = { nombre, apellido, calle, altura, provincia };
+
+    fetch(url, { 
+      method: "POST", 
+      body: JSON.stringify(data), 
+      headers: {"Content-Type": "application/json"},
+    })
+      .then( (response) => response.json())
+      .then (( result ) => {
+        console.log(result) 
+        getClientes();
+        handleCloseModalClientes();
+      });
+  }
+
+  const handleDelete = (id) => {
+    const url = `http://localhost:8000/clientes/${id}`;
+    
+    fetch(url, { method: "DELETE"} )
+    .then( (response) => response.json() )
+    .then (( result ) => {
+      console.log(result) 
+      getClientes();
+    });
+  }
+
+
+
+
+
   const getTableBody = () => {
 
 /*     const rows = [];
@@ -46,7 +86,7 @@ export default function ClientesPage() {
           <td>{cliente.apellido}</td>
           <td>
             <Button className='me-2' variant='success'>Modificar</Button>
-            <Button className='me-2' variant='danger'>Eliminar</Button>
+            <Button className='me-2' onClick={ () => handleDelete(cliente.id) /* () para evitar que la ejecute enseguida si se pasan parametros */ } variant='danger'>Eliminar</Button>
           </td>
         </tr>
       )
@@ -61,22 +101,6 @@ export default function ClientesPage() {
 
   const handleCloseModalClientes = () => {
     setshowModalClientes(false);
-  }
-
-  const handleSave = (event) =>{
-    console.log("Guardar", nombre, apellido, calle, altura, provincia)
-
-    const url = "http://localhost:8000/clientes";
-
-    const data = { nombre, apellido, calle, altura, provincia };
-
-    fetch(url, { 
-      method: "POST", 
-      body: JSON.stringify(data), 
-      headers: {"Content-Type": "application/json"},
-    })
-      .then( (response) => response.json())
-      .then( (result) => console.log(result) )
   }
 
   const handleChangeNombre = (event) => {
@@ -98,6 +122,7 @@ export default function ClientesPage() {
   const handleChangeProvincia = (event) => {
     setProvincia(event.target.value);
   }
+
 
 
   return ( 
