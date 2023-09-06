@@ -13,6 +13,7 @@ export default function ClientesPage() {
   const [ altura, setAltura] = useState("");
   const [ provincia, setProvincia] = useState("");
 
+  const [ estadoEdicion, setEstadoEdicion ] = useState(null); 
 
   const getClientes = () => {
     const url = "http://localhost:8000/clientes";
@@ -25,8 +26,22 @@ export default function ClientesPage() {
   useEffect( getClientes, [] );
 
 
-  const handleShowEditModal = () => {
-    setpr
+  const handleShowEditModal = (id) => {
+    const url = `http://localhost:8000/clientes/${id}`;
+    
+    fetch(url)
+    .then( response => response.json())
+    .then( (result) => {
+      setNombre(result.nombre);
+      setApellido(result.apellido);
+      setCalle(result.calle);
+      setAltura(result.altura);
+      setProvincia(result.id_provincia);
+
+      setEstadoEdicion("modificar");
+
+      handleShowModalClientes();
+    })
   }
 
   const handleSave = (event) =>{
@@ -34,10 +49,17 @@ export default function ClientesPage() {
 
     const url = "http://localhost:8000/clientes";
 
+    let metodo = "POST"
+
+    if( estadoEdicion === "modificar" ){
+      url += `/${idCliente}`;
+      metodo = "PUT";
+    }
+
     const data = { nombre, apellido, calle, altura, provincia };
 
     fetch(url, { 
-      method: "POST", 
+      method: metodo, 
       body: JSON.stringify(data), 
       headers: {"Content-Type": "application/json"},
     })
@@ -85,7 +107,7 @@ export default function ClientesPage() {
           <td>{cliente.nombre}</td>
           <td>{cliente.apellido}</td>
           <td>
-            <Button className='me-2' variant='success'>Modificar</Button>
+            <Button className='me-2' onClick={ () => handleShowEditModal(cliente.id)} variant='success'>Modificar</Button>
             <Button className='me-2' onClick={ () => handleDelete(cliente.id) /* () para evitar que la ejecute enseguida si se pasan parametros */ } variant='danger'>Eliminar</Button>
           </td>
         </tr>
@@ -128,7 +150,18 @@ export default function ClientesPage() {
   return ( 
     <>
       <h1>Clientes</h1>
-      <Button className='mb-3' onClick={handleShowModalClientes}>Nuevo</Button>
+      <Button className='mb-3' onClick={() => {
+        setNombre("");
+        setApellido("");
+        setCalle("");
+        setAltura("");
+        setProvincia("");
+
+        setEstadoEdicion("nuevo");
+
+        handleShowModalClientes();
+      }}
+        >Nuevo</Button>
 
       <table className='table'>
         <thead>
@@ -143,7 +176,11 @@ export default function ClientesPage() {
 
       <Modal show={showModalClientes} onHide={handleCloseModalClientes}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>
+            {
+              estadoEdicion === "nuevo" ? "Nuevo Cliente" : "Modificar Cliente"
+            }
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
