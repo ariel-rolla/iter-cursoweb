@@ -14,6 +14,7 @@ export default function ClientesPage() {
   const [ provincia, setProvincia] = useState("");
 
   const [ estadoEdicion, setEstadoEdicion ] = useState(null); 
+  const [ idClienteSeleccionado, setIdClienteSelecionado ] = useState(null);
 
   const getClientes = () => {
     const url = "http://localhost:8000/clientes";
@@ -39,6 +40,7 @@ export default function ClientesPage() {
       setProvincia(result.id_provincia);
 
       setEstadoEdicion("modificar");
+      setIdClienteSelecionado(id);
 
       handleShowModalClientes();
     })
@@ -158,6 +160,7 @@ export default function ClientesPage() {
         setProvincia("");
 
         setEstadoEdicion("nuevo");
+        setIdClienteSelecionado(null);
 
         handleShowModalClientes();
       }}
